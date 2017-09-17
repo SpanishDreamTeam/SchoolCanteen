@@ -1,0 +1,29 @@
+.header {
+	height: 70px;
+	background-color: #fccca7;
+	background-image: url(../img/head.png);
+	background-repeat: repeat-x;
+}
+.header img {
+	width: 70px;
+}
+.header h1 {
+	line-height: 70px;
+	float: left;
+	color: #991b00;
+}
+.header ul li {
+	float: left;
+	line-height: 70px;
+	font-size: 18px;
+	padding:0 5px;
+}
+.header ul li a {
+	color: #991b00;
+}
+.header ul li a:hover {
+	color: #d75000;
+}
+.header ul {
+	float: right;
+}

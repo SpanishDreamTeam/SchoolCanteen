@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Button } from 'antd';
+import Header from './component/header';
+import Nav from './component/nav';
+import Menu from './component/menu';
 import './App.css';
 
 class App extends Component {
     render() {
       return (
         <div className="App">
-          <Button type="primary">Button</Button>
+          <Header />
+          <Nav />
+          <Menu />
         </div>
       );
     }

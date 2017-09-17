@@ -1,0 +1,69 @@
+.main-nav {
+  background: url(../img/menu3.png) no-repeat;
+  background-position: 0 -15px;
+}
+.search {
+  width: 80%;
+  margin-top: 10px;
+  height: 40px;
+}
+.sttnav {
+  text-align: center;
+  width: 100%;
+  height: 65px;
+  margin: 10px 0;
+}
+.sttnav li {
+	float: left;
+  width: 20%;
+  margin: 20px 0;
+}
+.sttnav li a {
+  font-size: 18px;
+  color: #991b00;
+}
+.sttnav li a:hover{
+  color: #d75000;
+}
+.side-nav {
+  text-align: center;
+  border: 2px solid #f78e3d;
+  border-radius: 5px;
+}
+.side-nav li a {
+  font-size: 18px;
+  display: block;
+  margin: 10px 0;
+  color: #991b00;
+}
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 300px;
+  line-height: 260px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.ad-box > img {
+  width: 100%;
+  height: 300px;
+}
+.left {
+  margin-right: 10px;
+}
+.right {
+  margin-left: 10px;
+}
+.right li:first-child a{
+  font-size: 22px;
+}
+.right li:nth-child(2) a{
+  font-size: 21px;
+}
+.right li:nth-child(3) a{
+  font-size: 20px;
+}
+.food-list h2 {
+  background-color: #f56a00;
+  width: 50%;
+  margin: 10px auto; 
+}
