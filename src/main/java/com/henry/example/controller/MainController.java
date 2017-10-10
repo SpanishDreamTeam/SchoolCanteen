@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.henry.example.bean.PostgresqlService;
+import com.henry.example.bean.MysqlService;
 import com.henry.example.bean.RedisService;
 import com.henry.example.bean.User;
 
@@ -30,7 +30,7 @@ public class MainController {
 	private RedisService redisServer;
 	
 	@Autowired 
-	private PostgresqlService postgresqlService;
+	private MysqlService postgresqlService;
 	
 	
 	@RequestMapping(value="/hello/{name}",method = RequestMethod.GET)
@@ -39,13 +39,6 @@ public class MainController {
 		return "hello";
 	}
 	
-//	@RequestMapping(value="/xsdtree")
-//	public String showGet(Model model){
-//		String xsd = postgresqlService.getSQL("henry_xsd_01");
-//		model.addAttribute("xsd", xsd);
-//		return "index";
-//	}
-//	
 	
 	@RequestMapping(value="/")
 	public String showGet(){
@@ -56,6 +49,12 @@ public class MainController {
 	@RequestMapping(value = "/getMenu")
 	public String getMenu() {
 	    return postgresqlService.getSQLAll();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="search/{keyword}")
+	public String search(@PathVariable String keyword){
+		return postgresqlService.getSQL(keyword);
 	}
 	
 	@ResponseBody
