@@ -1,0 +1,74 @@
+.food-img {
+  width: 100%;
+  transition: .5s;
+  overflow: hidden;
+  height: 318px;
+  position: relative;
+}
+
+.food-img > img{
+  width: 100%;
+}
+.food-card {
+  margin: 10px 0;
+}
+.food-card > div {
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.18);
+  transition: .3s;
+  position: relative;
+  top:0;
+}
+.food-card > div:hover {
+  top:-8px;
+  box-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.18);
+}
+.food-card > div:hover .food-img{
+  transform: scale(1.2);
+}
+
+.food-card > div > .text{
+  position: relative;
+  z-index: 10;
+}
+
+.food-card > div > .text::before{
+  content: "";
+  display: block;
+  margin-left: -4px;
+  width: 103%;
+  height:50px;
+  background: #ffffff;
+  transform: rotate(4deg);
+  position: absolute;
+  top: -40px;
+  z-index: -1;
+}
+.food-card > div > .text >h3{
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  color: #FBB448;
+}
+.food-card > div > .text >p{
+  color: #000;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.menu {
+  width: 90%;
+  margin: auto !important;
+} 
+
+.menu-head-h1 > h1{
+  color: #FBB448;
+  font-size: 70px;
+  margin: 50px auto;
+}
+.menu-head-search > span{
+  margin: 90px;
+}
