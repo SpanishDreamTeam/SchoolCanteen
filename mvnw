@@ -54,6 +54,7 @@ case "`uname`" in
   CYGWIN*) cygwin=true ;;
   MINGW*) mingw=true;;
   Darwin*) darwin=true
+<<<<<<< HEAD
     # Use /usr/libexec/java_home if available, otherwise fall back to /Library/Java/Home
     # See https://developer.apple.com/library/mac/qa/qa1170/_index.html
     if [ -z "$JAVA_HOME" ]; then
@@ -64,6 +65,40 @@ case "`uname`" in
       fi
     fi
     ;;
+=======
+           #
+           # Look for the Apple JDKs first to preserve the existing behaviour, and then look
+           # for the new JDKs provided by Oracle.
+           #
+           if [ -z "$JAVA_HOME" ] && [ -L /System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK ] ; then
+             #
+             # Apple JDKs
+             #
+             export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
+           fi
+
+           if [ -z "$JAVA_HOME" ] && [ -L /System/Library/Java/JavaVirtualMachines/CurrentJDK ] ; then
+             #
+             # Apple JDKs
+             #
+             export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/CurrentJDK/Contents/Home
+           fi
+
+           if [ -z "$JAVA_HOME" ] && [ -L "/Library/Java/JavaVirtualMachines/CurrentJDK" ] ; then
+             #
+             # Oracle JDKs
+             #
+             export JAVA_HOME=/Library/Java/JavaVirtualMachines/CurrentJDK/Contents/Home
+           fi
+
+           if [ -z "$JAVA_HOME" ] && [ -x "/usr/libexec/java_home" ]; then
+             #
+             # Apple JDKs
+             #
+             export JAVA_HOME=`/usr/libexec/java_home`
+           fi
+           ;;
+>>>>>>> 19c5734ecdd0d12c87d40ca7e1b97fbe96d9ddc2
 esac
 
 if [ -z "$JAVA_HOME" ] ; then
@@ -162,6 +197,7 @@ fi
 
 CLASSWORLDS_LAUNCHER=org.codehaus.plexus.classworlds.launcher.Launcher
 
+<<<<<<< HEAD
 # traverses directory structure from process work directory to filesystem root
 # first directory with .mvn subdirectory is considered project base directory
 find_maven_basedir() {
@@ -174,16 +210,37 @@ find_maven_basedir() {
 
   basedir="$1"
   wdir="$1"
+=======
+# For Cygwin, switch paths to Windows format before running java
+if $cygwin; then
+  [ -n "$M2_HOME" ] &&
+    M2_HOME=`cygpath --path --windows "$M2_HOME"`
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
+  [ -n "$CLASSPATH" ] &&
+    CLASSPATH=`cygpath --path --windows "$CLASSPATH"`
+fi
+
+# traverses directory structure from process work directory to filesystem root
+# first directory with .mvn subdirectory is considered project base directory
+find_maven_basedir() {
+  local basedir=$(pwd)
+  local wdir=$(pwd)
+>>>>>>> 19c5734ecdd0d12c87d40ca7e1b97fbe96d9ddc2
   while [ "$wdir" != '/' ] ; do
     if [ -d "$wdir"/.mvn ] ; then
       basedir=$wdir
       break
     fi
+<<<<<<< HEAD
     # workaround for JBEAP-8937 (on Solaris 10/Sparc)
     if [ -d "${wdir}" ]; then
       wdir=`cd "$wdir/.."; pwd`
     fi
     # end of workaround
+=======
+    wdir=$(cd "$wdir/.."; pwd)
+>>>>>>> 19c5734ecdd0d12c87d40ca7e1b97fbe96d9ddc2
   done
   echo "${basedir}"
 }
@@ -195,6 +252,7 @@ concat_lines() {
   fi
 }
 
+<<<<<<< HEAD
 BASE_DIR=`find_maven_basedir "$(pwd)"`
 if [ -z "$BASE_DIR" ]; then
   exit 1;
@@ -215,6 +273,15 @@ if $cygwin; then
   [ -n "$MAVEN_PROJECTBASEDIR" ] &&
     MAVEN_PROJECTBASEDIR=`cygpath --path --windows "$MAVEN_PROJECTBASEDIR"`
 fi
+=======
+export MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-$(find_maven_basedir)}
+MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
+
+# Provide a "standardized" way to retrieve the CLI args that will
+# work with both Windows and non-Windows executions.
+MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $@"
+export MAVEN_CMD_LINE_ARGS
+>>>>>>> 19c5734ecdd0d12c87d40ca7e1b97fbe96d9ddc2
 
 WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
 
@@ -222,4 +289,8 @@ exec "$JAVACMD" \
   $MAVEN_OPTS \
   -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
   "-Dmaven.home=${M2_HOME}" "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
+<<<<<<< HEAD
   ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"
+=======
+  ${WRAPPER_LAUNCHER} "$@"
+>>>>>>> 19c5734ecdd0d12c87d40ca7e1b97fbe96d9ddc2
