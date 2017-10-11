@@ -14,7 +14,6 @@ class Content extends Component {
     componentDidMount(){
       getService('http://www.henryzhang.com.cn:8080/getMenu',(data)=>{
         if(data.success){
-          console.log(data.data);
           this.setState({
             data:data.data,
           });
@@ -32,11 +31,11 @@ class Content extends Component {
     }
     render() {
       const {data}=this.state;
-      // let arr;
+      let arr;
       // if(this.props.type==='search'){
       //   arr=this.props.searchData;
       // }else {
-      //   arr=data.slice(0,6);
+        arr=data.slice(0,6);
       // }    
       return (
         <div style={{width:'100%'}}>
@@ -52,7 +51,7 @@ class Content extends Component {
             {data.map((v,k)=>{ return <Col span={8} key={k} className="food-card">
               <div>
                 <div className="food-img">
-                  <img src={require('../img/huimian .png')} alt="#" />
+                  <img src={v.picture_url} alt="#" />
                 </div>
                 <div className="text">
                   <h3>{v.dish_name}</h3>

@@ -2,12 +2,12 @@
   width: 100%;
   transition: .5s;
   overflow: hidden;
-  height: 318px;
   position: relative;
 }
 
 .food-img > img{
   width: 100%;
+  padding-bottom: 10%;
 }
 .food-card {
   margin: 10px 0;
