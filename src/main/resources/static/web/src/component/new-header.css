@@ -1,7 +1,8 @@
 .header {
-  background-image: url(../img/img_bg_1.jpg);
+  background-image: url(../img/bg-footer.jpg);
   background-position: 50% -45px;
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 .login-box{
   margin-top: 150px;
@@ -29,10 +30,13 @@
   margin-bottom: 10px;
 }
 .ant-menu {
-  background: none;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 3;
+  width: 100%;
 }
 .ant-menu > li{
-  z-index: 2;
+  z-index: 3;
   color: #fff;
 }
 .ant-menu-item > a {
@@ -43,7 +47,7 @@
 }
 .header-main {
   z-index: 2;
-  height: 607px;
+  height: 656px;
   margin: auto !important;
 }
 .overlay {
@@ -59,4 +63,23 @@
   color: #fff;
   font-size: 70px;
   margin-top: 260px;
+}
+.newHeader-user {
+  color: #fff;
+  height: 50px;
+  font-size: 20px;
+  position: absolute;
+  right: 5%;
+}
+.newHeader-user > i {
+  font-size: 30px;
+}
+.newHeader-user > i:last-child {
+  font-size: 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.newHeader-user > i:last-child:hover {
+  font-size: 17px;
+  color: #FBB448;
 }
