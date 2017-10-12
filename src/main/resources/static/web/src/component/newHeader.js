@@ -52,14 +52,14 @@ class LoginForm extends React.Component {
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: '请输入用户名' }],
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="请输入用户名" />
           )}
         </FormItem>
         <FormItem label="密码">
           {getFieldDecorator('password', {
             rules: [{ required: true, message: '请输入密码' }],
           })(
-            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="请输入密码" />
           )}
         </FormItem>
         <FormItem>
@@ -125,7 +125,7 @@ class Header extends Component {
           <Col span={6} offset={4}>
           {
             isLogin?<div />:<div className="login-box">
-                              <h2 className="form-h2">login</h2>
+                              <h2 className="form-h2">登录</h2>
                               <Login changeLogin={changeLogin}/>
                             </div>
           }            

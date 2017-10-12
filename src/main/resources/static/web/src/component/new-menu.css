@@ -73,7 +73,7 @@
   margin: 50px auto;
 }
 .menu-head-search > span{
-  margin: 90px;
+  margin: 90px 0;
 }
 .newMenu-more{
   padding: 20px 0;
@@ -81,4 +81,7 @@
 }
 .ant-spin-dot {
   left: 0% !important;
+}
+.menu-head-btn {
+  margin: 90px 60px;
 }

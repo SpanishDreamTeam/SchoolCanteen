@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col,Row,Card,Input,Spin} from 'antd';
+import {Col,Row,Card,Input,Spin,Button} from 'antd';
 import {getService} from '../model/fetch';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './new-menu.css';
@@ -8,6 +8,7 @@ const Search = Input.Search;
 class Content extends Component {
     constructor(props){
       super(props);
+      this.AllData=[];
       this.state={
         data:[],
         loading:true,
@@ -20,6 +21,7 @@ class Content extends Component {
             data:data.data,
             loading:false,
           });
+          this.AllData=data.data;
         }
       })
     }
@@ -31,6 +33,11 @@ class Content extends Component {
             loading:false,
           })
         }
+      })
+    }
+    onClick=()=>{
+      this.setState({
+        data:this.AllData
       })
     }
     render() {
@@ -49,7 +56,10 @@ class Content extends Component {
             </Col>
             <Col span={6} offset={6} className="menu-head-search">
               <Search size="large" onSearch={this.onSearch} placeholder="请输入菜名"/>
-            </Col>  
+            </Col> 
+            <Col span={1} offset={1} className="menu-head-btn">
+              <Button style={this.props.type==='allMenus'?{}:{display:'none'}} onClick={this.onClick}>返回全部</Button>
+            </Col> 
           </Row>
           <Spin spinning={this.state.loading} delay={500}>
             <Row gutter={30} className="menu">
