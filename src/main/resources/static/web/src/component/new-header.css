@@ -3,6 +3,7 @@
   background-position: 50% -45px;
   background-repeat: no-repeat;
   background-size: 100%;
+  position: relative;
 }
 .login-box{
   margin-top: 150px;
@@ -14,7 +15,7 @@
 .login-form-button{
   width: 100%;
 }
-.ant-form-item-label > label{
+.login-form >.ant-form-item > .ant-form-item-label > label{
   color: #fff !important;
 }
 .login-form-button {

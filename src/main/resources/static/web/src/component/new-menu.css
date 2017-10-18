@@ -12,6 +12,7 @@
 }
 .food-card {
   margin: 10px 0;
+  cursor: pointer;
 }
 .food-card > div {
   width: 100%;
@@ -79,9 +80,38 @@
   padding: 20px 0;
   font-size: 16px;
 }
-.ant-spin-dot {
+.spin {
   left: 0% !important;
 }
 .menu-head-btn {
   margin: 90px 60px;
+}
+.modal-foodimg > img {
+  width: 50%;
+  height: 60px;
+}
+.comment-ul {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 20px 0; 
+}
+
+.comment-ul > li {
+  padding: 10px;
+  position: relative;
+}
+
+.comment-ul > li >span:first-child {
+  color: #FBB448;
+}
+
+.comment-ul > li >span:last-child {
+  color: #FBB448;
+  position: absolute;
+  right: 10px;
+}
+
+.comment-ul > li >p {
+  word-break:break-all;
 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Col,Row,Form, Icon, Input, Button, Menu ,Avatar,message,Tooltip} from 'antd';
+import {Col,Row,Form, Icon, Input, Button, Menu ,Modal,Avatar,message,Tooltip} from 'antd';
 import {getService} from '../model/fetch';
 import {Content} from './newMenu';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './new-header.css';
+import Register from './register';
 const FormItem = Form.Item;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -14,8 +15,48 @@ class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      loading:false
+      loading:false,
+      visible: false,
+      registerLoading:false,
     };
+  }
+  showModal = () => {
+    this.setState({ visible: true });
+  }
+  handleCancel = () => {
+    this.setState({ visible: false });
+  }
+  handleCreate = () => {
+    const form = this.form;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+      if(values.account && values.password && values.name){
+        this.setState({
+          registerLoading:true,
+        });
+      }
+      getService('http://www.henryzhang.com.cn:8080/register/'+values.account+'&'+values.password+'&'+values.name,(data)=>{
+        if(data.success){
+          if(data.data==="False"){
+            message.error("注册失败，请重新填写",3);
+            this.setState({
+              registerLoading:false
+            });
+          }else{
+            message.success("注册成功",3);
+            this.setState({
+              registerLoading:false,
+              visible: false
+            });
+          }           
+        }
+      })
+    });
+  }
+  saveFormRef = (form) => {
+    this.form = form;
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +73,8 @@ class LoginForm extends React.Component {
                 loading:false
               })
             }else{
-              sessionStorage.setItem("name", data.data);
+              sessionStorage.setItem("name", data.data[0].name);
+              sessionStorage.setItem("uid", data.data[0].uid);
               this.props.changeLogin();
               message.success("登录成功",3);
               this.setState({
@@ -67,6 +109,12 @@ class LoginForm extends React.Component {
             登录
           </Button>
         </FormItem>
+        <FormItem>
+          <a onClick={this.showModal}>还没有账号？马上注册</a>
+        </FormItem>
+        <Modal visible={this.state.visible} title="注册" okText="注册" cancelText="取消" onCancel={this.handleCancel} onOk={this.handleCreate} confirmLoading={this.state.registerLoading}>
+          <Register  ref={this.saveFormRef}/>
+        </Modal>  
       </Form>
     );
   }
