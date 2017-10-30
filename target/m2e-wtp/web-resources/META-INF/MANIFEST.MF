@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: school-canteen
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.henry.example
+Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/school-cante
+ en/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
