@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,19 +23,9 @@ import net.sf.json.JSONObject;
 
 @Controller
 public class MainController {
-	@Autowired  
-	private RedisService redisServer;
 	
 	@Autowired 
 	private MysqlService mysqlService;
-	
-	
-	@RequestMapping(value="/hello/{name}",method = RequestMethod.GET)
-	public String hello(@PathVariable("name") String name,Model model){
-		model.addAttribute("name", name);
-		return "hello";
-	}
-	
 	
 	@RequestMapping(value="/")
 	public String showGet(){
@@ -93,38 +82,4 @@ public class MainController {
 		return menu;
     }
 	
-	@ResponseBody
-	@RequestMapping(value="post",method = RequestMethod.POST)
-	public String post(@RequestParam String name){
-		return name;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="get")
-	public Map<String,String> get(@RequestParam String name){
-		Map<String,String> map = new HashMap<String,String>();
-		map.put("name", name);
-		map.put("value", "hello world");
-//		redisServer.save(name, "hello world");
-		mysqlService.insertSQL(name, "hello world");
-		return map;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value="find/{id}/{name}")
-	public User get(@PathVariable int id,@PathVariable String name){
-		User u = new User();
-		u.setId(id);
-		u.setName(name);
-		u.setData(new Date());
-		
-		return u;
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "testpost", method = RequestMethod.POST)  
-	public String testpost() {  
-        System.out.println("hello  test post");  
-        return "ok";  
-    } 
 }
