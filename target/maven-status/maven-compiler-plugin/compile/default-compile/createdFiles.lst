@@ -1,0 +1,6 @@
+com\henry\example\myparse\ParseXML.class
+com\henry\example\controller\MainController.class
+com\henry\example\bean\JsontoXML.class
+com\henry\example\bean\User.class
+com\henry\example\bean\RedisService.class
+com\henry\example\SchoolCanteenApplication.class
