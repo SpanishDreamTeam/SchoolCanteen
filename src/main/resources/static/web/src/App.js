@@ -4,6 +4,7 @@ import {Header,Nav} from './component/newHeader';
 import {Content} from './component/newMenu';
 import {getService} from './model/fetch';
 import Footer from './component/footer';
+import Contact from './component/contact';
 import './App.css';
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
               <Route exact path="/" component={Content}/>
               <Route exact path="/" component={Footer}/>
               <Route exact path="/menus" render={()=> <Content type="allMenus"/>}/>
+              <Route exact path="/contact" render={()=> <Contact />}/>
             </div>                   
           </Router>
         </div>

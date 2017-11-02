@@ -1,0 +1,22 @@
+.contact {
+  width: 100%;
+  background-image: url(../img/bg-footer.jpg);
+  background-size: 100% 120%;
+  background-position: 50% -45px;
+  background-repeat: no-repeat;
+  height: 700px;
+  position: relative;
+}
+.contact-main {
+  z-index: 2;
+}
+.contact-main h1{
+  color: #fff;
+  margin: 60px auto;
+  font-size: 30px;
+}
+.contact-main p{
+  color: #fff;
+  margin: 20px 80px;
+  font-size: 18px;
+}

@@ -136,6 +136,11 @@ class Nav extends Component {
               <Icon type="appstore-o" />菜单列表
             </Link>
           </Menu.Item>
+          <Menu.Item key="contact">
+            <Link to="/contact">
+            <Icon type="phone" />联系我们
+            </Link>
+          </Menu.Item>
           {/* <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
             <MenuItemGroup title="Item 1">
               <Menu.Item key="setting:1">Option 1</Menu.Item>
